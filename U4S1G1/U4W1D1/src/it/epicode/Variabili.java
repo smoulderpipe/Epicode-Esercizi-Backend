@@ -56,8 +56,8 @@ public class Variabili {
         return 2 * (base + altezza);
     }
 
-    public static int pariDispari(int numero) {
-        if (numero % 2 == 0) {
+    public static int pariDispari(int number) {
+        if (number % 2 == 0) {
             return 0;
         } else {
             return 1;
