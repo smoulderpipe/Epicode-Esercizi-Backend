@@ -58,9 +58,9 @@ public class Variabili {
 
     public static int pariDispari(int numero) {
         if (numero % 2 == 0) {
-            return 0; // Pari
+            return 0;
         } else {
-            return 1; // Dispari
+            return 1;
         }
     }
 
