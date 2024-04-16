@@ -63,6 +63,9 @@ public class Variabili {
             return 1;
         }
     }
+    public static int pariDispari2Ternario(int number) {
+        return (number % 2 == 0) ? 0 : 1;
+    }
 
     public static double perimetroTriangolo(double latoA, double latoB, double latoC) {
         double semiperimetro = (latoA + latoB + latoC) / 2;

@@ -49,6 +49,8 @@ public class Main {
             System.out.println(numero + " è dispari");
         }
 
+        int risultatoPariDispari = Variabili.pariDispari(numero);
+
         System.out.print("Inserisci il lato A del triangolo: ");
         double latoATriangolo = scanner.nextDouble();
 
