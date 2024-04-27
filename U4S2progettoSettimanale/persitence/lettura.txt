@@ -1,0 +1,8 @@
+ISBN: ISBN009, Titolo: Il signore degli anelli, Anno: 1954, Pagine: 1178, Autore: J.R.R. Tolkien, Genere: Fantasy
+ISBN: ISBN010, Titolo: Il vecchio e il mare, Anno: 1952, Pagine: 127, Autore: Ernest Hemingway, Genere: Romanzo
+ISBN: ISBN011, Titolo: Moby Dick, Anno: 1851, Pagine: 624, Autore: Herman Melville, Genere: Romanzo
+ISBN: ISBN012, Titolo: La metamorfosi, Anno: 1915, Pagine: 56, Autore: Franz Kafka, Genere: Romanzo
+ISBN: ISBN013, Titolo: Il grande Gatsby, Anno: 1925, Pagine: 180, Autore: F. Scott Fitzgerald, Genere: Romanzo
+ISBN: ISBN014, Titolo: L'ombra del vento, Anno: 2001, Pagine: 512, Autore: Carlos Ruiz Zafón, Genere: Romanzo
+ISBN: ISBN015, Titolo: La storia infinita, Anno: 1979, Pagine: 448, Autore: Michael Ende, Genere: Fantasy
+ISBN: ISBN016, Titolo: Le cronache di Narnia, Anno: 1950, Pagine: 767, Autore: C.S. Lewis, Genere: Fantasy
