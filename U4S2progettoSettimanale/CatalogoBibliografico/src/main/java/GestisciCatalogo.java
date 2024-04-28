@@ -315,10 +315,12 @@ public class GestisciCatalogo {
                             System.out.println("Libro aggiunto con successo al catalogo.");
                             inputValidoLibro = true;
 
+
                             System.out.println("ARCHIVIO AGGIORNATO:");
                             for (ElementoCatalogo elemento : archivio) {
                                 System.out.println(elemento.toString());
                             }
+                            isValid = true;
 
 
                         } catch (InputMismatchException e) {
@@ -430,6 +432,8 @@ public class GestisciCatalogo {
                             for (ElementoCatalogo elemento : archivio) {
                                 System.out.println(elemento.toString());
                             }
+
+                            isValid = true;
 
 
                         } catch (InputMismatchException e) {

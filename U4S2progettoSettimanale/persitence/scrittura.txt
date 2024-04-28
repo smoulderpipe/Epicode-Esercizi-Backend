@@ -1,8 +1,8 @@
-ISBN: ISBN002, Titolo: Il Processo, Anno: 2022, Pagine: 256, Autore: Franz Kafka, Genere: Romanzo
 ISBN: ISBN006, Titolo: National Geographic, Anno: 2022, Pagine: 150, Periodicita: mensile
+ISBN: ISBN005, Titolo: Il Piccolo Principe, Anno: 1999, Pagine: 96, Autore: Antoine de Saint-Exupéry, Genere: Fantasy
 ISBN: ISBN004, Titolo: 1984, Anno: 1949, Pagine: 328, Autore: George Orwell, Genere: Distopia
 ISBN: ISBN003, Titolo: Orgoglio e Pregiudizio, Anno: 1813, Pagine: 279, Autore: Jane Austen, Genere: Romanzo
-ISBN: ISBN008, Titolo: Wired, Anno: 2022, Pagine: 120, Periodicita: mensile
+ISBN: ISBN002, Titolo: Il Processo, Anno: 2022, Pagine: 256, Autore: Franz Kafka, Genere: Romanzo
 ISBN: ISBN001, Titolo: Guerra e Pace, Anno: 1983, Pagine: 1415, Autore: Lev Tolstoj, Genere: Romanzo
-ISBN: ISBN005, Titolo: Il Piccolo Principe, Anno: 1999, Pagine: 96, Autore: Antoine de Saint-Exupéry, Genere: Fantasy
+ISBN: ISBN008, Titolo: Wired, Anno: 2022, Pagine: 120, Periodicita: mensile
 ISBN: ISBN007, Titolo: Time, Anno: 1999, Pagine: 100, Periodicita: settimanale
