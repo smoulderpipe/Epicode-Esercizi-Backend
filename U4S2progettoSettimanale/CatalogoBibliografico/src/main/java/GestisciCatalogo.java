@@ -214,8 +214,12 @@ public class GestisciCatalogo {
                             while (isbnLibro == null) {
                                 System.out.print("Inserisci l'ISBN del libro: ");
                                 isbnLibro = scanner.nextLine();
+
                                 if (isbnLibro.isEmpty()) {
                                     throw new AttributiNonValidiException("Il campo 'ISBN' non può essere vuoto.");
+                                }
+                                if (ricercaElementoPerISBN(archivio, isbnLibro) != null) {
+                                    throw new ISBNDuplicatoException("ISBN già presente in archivio. Inserisci un ISBN diverso.");
                                 }
                             }
 
@@ -320,6 +324,8 @@ public class GestisciCatalogo {
                         } catch (InputMismatchException e) {
                             System.out.println("Errore nel formato di dato.");
                         } catch (AttributiNonValidiException e) {
+                            System.out.println(e.getMessage());
+                        } catch (ISBNDuplicatoException e) {
                             System.out.println(e.getMessage());
                         }
                     }

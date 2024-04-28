@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class ElementoCatalogo {
 
     private String isbn;
@@ -57,5 +59,20 @@ public abstract class ElementoCatalogo {
     @Override
     public String toString() {
         return "ISBN: " + isbn + ", Titolo: " + titolo + ", Anno: " + anno + ", Pagine: " + pagine;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        ElementoCatalogo other = (ElementoCatalogo) obj;
+        return Objects.equals(isbn, other.isbn);
     }
 }
