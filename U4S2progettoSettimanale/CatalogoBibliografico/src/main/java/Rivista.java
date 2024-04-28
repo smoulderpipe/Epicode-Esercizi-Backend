@@ -23,17 +23,3 @@ public class Rivista extends ElementoCatalogo {
 
 }
 
-
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof Rivista)) return false;
-//        Rivista rivista = (Rivista) o;
-//        return getIsbn().equals(rivista.getIsbn());
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return getIsbn().hashCode();
-//    }

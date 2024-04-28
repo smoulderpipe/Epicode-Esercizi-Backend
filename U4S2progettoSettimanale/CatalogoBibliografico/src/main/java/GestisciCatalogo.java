@@ -68,12 +68,12 @@ public class GestisciCatalogo {
         scanner.close();
 
         System.out.println("L'archivio è stato salvato su file.");
-        File fileScrittura = new File("./../persitence/scrittura.txt");
+        File fileScrittura = new File("./../persistence/scrittura.txt");
         GestisciCatalogo gestoreCatalogo = new GestisciCatalogo();
         gestoreCatalogo.salvataggio(fileScrittura, archivio);
 
         System.out.println("Sono stati caricati elementi da un file esterno su un nuovo archivio. Contenuto del nuovo archivio:");
-        File fileLettura = new File("./../persitence/lettura.txt");
+        File fileLettura = new File("./../persistence/lettura.txt");
         Set<ElementoCatalogo> archivio2 = new HashSet<>();
         GestisciCatalogo.caricamento(fileLettura, archivio2);
         for (ElementoCatalogo elemento : archivio2) {

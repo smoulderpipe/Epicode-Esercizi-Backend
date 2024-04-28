@@ -31,22 +31,3 @@ public class Libro extends ElementoCatalogo {
     }
 
 }
-
-
-
-
-
-
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof Libro)) return false;
-//        Libro libro = (Libro) o;
-//        return getIsbn().equals(libro.getIsbn());
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return getIsbn().hashCode();
-//    }
