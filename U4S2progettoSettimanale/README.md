@@ -29,3 +29,7 @@ Il progetto può essere eseguito utilizzando la classe `GestisciCatalogo`.
 ## Dipendenze
 Questo progetto utilizza la seguente dipendenza esterna:
 * *Apache Commons IO*: Utilizzato per semplificare le operazioni di lettura e scrittura su file.
+
+## Autore
+
+- [@smoulderpipe](https://github.com/smoulderpipe)
