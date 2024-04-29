@@ -1,3 +1,5 @@
+package eccezioni;
+
 public class ISBNDuplicatoException extends Exception {
 
     public ISBNDuplicatoException(String message) {

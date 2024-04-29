@@ -24,7 +24,7 @@ Il progetto è organizzato come segue:
 
 ## Esecuzione del Progetto
 
-Il progetto può essere eseguito utilizzando la classe `GestisciCatalogo`.
+Il progetto può essere eseguito utilizzando la classe `Main`.
 
 ## Dipendenze
 Questo progetto utilizza la seguente dipendenza esterna:

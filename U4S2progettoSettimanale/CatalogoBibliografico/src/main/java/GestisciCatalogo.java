@@ -3,85 +3,13 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.stream.Collectors;
+import eccezioni.AttributiNonValidiException;
+import eccezioni.ISBNDuplicatoException;
 import org.apache.commons.io.FileUtils;
 
 public class GestisciCatalogo {
 
-    public static void main(String[] args) throws IOException {
-
-        Set<ElementoCatalogo> archivio = new HashSet<>();
-
-        Libro libro1 = new Libro("ISBN001", "Guerra e Pace", 1983, 1415, "Lev Tolstoj", "Romanzo");
-        Libro libro2 = new Libro("ISBN002", "Il Processo", 2022, 256, "Franz Kafka", "Romanzo");
-        Libro libro3 = new Libro("ISBN003", "Orgoglio e Pregiudizio", 1813, 279, "Jane Austen", "Romanzo");
-        Libro libro4 = new Libro("ISBN004", "1984", 1949, 328, "George Orwell", "Distopia");
-        Libro libro5 = new Libro("ISBN005", "Il Piccolo Principe", 1999, 96, "Antoine de Saint-Exupéry", "Fantasy");
-
-        Rivista rivista1 = new Rivista("ISBN006", "National Geographic", 2022, 150, new Periodicita("MENSILE"));
-        Rivista rivista2 = new Rivista("ISBN007", "Time", 1999, 100, new Periodicita("SETTIMANALE"));
-        Rivista rivista3 = new Rivista("ISBN008", "Wired", 2022, 120, new Periodicita("MENSILE"));
-
-
-        archivio.add(libro1);
-        archivio.add(libro2);
-        archivio.add(libro3);
-        archivio.add(libro4);
-        archivio.add(libro5);
-        archivio.add(rivista1);
-        archivio.add(rivista2);
-        archivio.add(rivista3);
-
-
-        System.out.println("ARCHIVIO INIZIALE:");
-        for (ElementoCatalogo elemento : archivio) {
-            System.out.println(elemento.toString());
-        }
-        System.out.println("\n");
-
-        Scanner scanner = new Scanner(System.in);
-
-        boolean inputValido = false;
-
-        while (!inputValido) {
-            System.out.print("Che tipo di operazione vuoi fare? (ricerca, rimozione, aggiunta): ");
-            String tipoOperazione = scanner.nextLine().toLowerCase();
-
-            switch (tipoOperazione) {
-                case "ricerca":
-                    eseguiRicerca(archivio, scanner);
-                    inputValido = true;
-                    break;
-                case "rimozione":
-                    eseguiRimozione(archivio, scanner);
-                    inputValido = true;
-                    break;
-                case "aggiunta":
-                    eseguiAggiunta(archivio, scanner);
-                    inputValido = true;
-                    break;
-                default:
-                    System.out.println("Operazione non valida.");
-                    break;
-            }
-        }
-
-        scanner.close();
-
-        System.out.println("L'archivio è stato salvato su file.");
-        File fileScrittura = new File("./../persistence/scrittura.txt");
-        GestisciCatalogo gestoreCatalogo = new GestisciCatalogo();
-        gestoreCatalogo.salvataggio(fileScrittura, archivio);
-
-        System.out.println("Sono stati caricati elementi da un file esterno su un nuovo archivio. Contenuto del nuovo archivio:");
-        File fileLettura = new File("./../persistence/lettura.txt");
-        Set<ElementoCatalogo> archivio2 = new HashSet<>();
-        GestisciCatalogo.caricamento(fileLettura, archivio2);
-        for (ElementoCatalogo elemento : archivio2) {
-            System.out.println(elemento.toString());
-        }
-    }
-
-    public static void salvataggio(File file, Set<ElementoCatalogo> archivio) throws IOException {
+    public void salvataggio(File file, Set<ElementoCatalogo> archivio) throws IOException {
 
         String archivioString = archivio.stream()
                 .map(ElementoCatalogo::toString)
@@ -95,7 +23,7 @@ public class GestisciCatalogo {
         }
     }
 
-    public static void caricamento(File file, Set<ElementoCatalogo> archivio) throws IOException {
+    public void caricamento(File file, Set<ElementoCatalogo> archivio) throws IOException {
 
         try {
             String str = FileUtils.readFileToString(file, Charset.defaultCharset());
@@ -103,11 +31,11 @@ public class GestisciCatalogo {
 
             Arrays.stream(archivioStr).forEach(s -> System.out.println(s));
         } catch (IOException e) {
-            System.out.println(e.getMessage());;
+            System.out.println(e.getMessage());
         }
     }
 
-    public static void eseguiRicerca(Set<ElementoCatalogo> archivio, Scanner scanner) {
+    public void eseguiRicerca(Set<ElementoCatalogo> archivio, Scanner scanner) {
         boolean inputCorretto = false;
 
         while (!inputCorretto) {
@@ -176,7 +104,7 @@ public class GestisciCatalogo {
     }
 
 
-    public static void eseguiRimozione(Set<ElementoCatalogo> archivio, Scanner scanner) {
+    public void eseguiRimozione(Set<ElementoCatalogo> archivio, Scanner scanner) {
         boolean inputCorretto = false;
         while (!inputCorretto) {
             System.out.print("Inserisci l'ISBN dell'elemento da rimuovere: ");
@@ -199,7 +127,7 @@ public class GestisciCatalogo {
 
     }
 
-    public static void eseguiAggiunta(Set<ElementoCatalogo> archivio, Scanner scanner) {
+    public void eseguiAggiunta(Set<ElementoCatalogo> archivio, Scanner scanner) {
         boolean isValid = false;
         while (!isValid) {
             System.out.print("Che tipo di elemento vuoi aggiungere? (libro, rivista): ");
@@ -452,27 +380,27 @@ public class GestisciCatalogo {
     }
 
 
-    public static ElementoCatalogo ricercaElementoPerISBN(Set<ElementoCatalogo> archivio, String isbn) {
+    public ElementoCatalogo ricercaElementoPerISBN(Set<ElementoCatalogo> archivio, String isbn) {
         return archivio.stream()
                 .filter(elemento -> elemento.getIsbn().equals(isbn))
                 .findFirst()
                 .orElse(null);
     }
 
-    public static Set<ElementoCatalogo> ricercaElementoPerAutore(Set<ElementoCatalogo> archivio, String autore) {
+    public Set<ElementoCatalogo> ricercaElementoPerAutore(Set<ElementoCatalogo> archivio, String autore) {
         return archivio.stream()
                 .filter(elemento -> elemento instanceof Libro)
                 .filter(libro -> ((Libro) libro).getAutore().equalsIgnoreCase(autore))
                 .collect(Collectors.toSet());
     }
 
-    public static Set<ElementoCatalogo> ricercaElementoPerAnno(Set<ElementoCatalogo> archivio, int anno) {
+    public Set<ElementoCatalogo> ricercaElementoPerAnno(Set<ElementoCatalogo> archivio, int anno) {
         return archivio.stream()
                 .filter(elemento -> elemento.getAnno() == anno)
                 .collect(Collectors.toSet());
     }
 
-    public static Set<ElementoCatalogo> rimuoviElementoPerISBN(Set<ElementoCatalogo> archivio, String isbn) {
+    public Set<ElementoCatalogo> rimuoviElementoPerISBN(Set<ElementoCatalogo> archivio, String isbn) {
         return archivio.stream()
                 .filter(elemento -> !elemento.getIsbn().equals(isbn))
                 .collect(Collectors.toSet());
