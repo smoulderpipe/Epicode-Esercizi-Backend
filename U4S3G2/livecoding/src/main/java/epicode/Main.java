@@ -16,7 +16,6 @@ public class Main {
         StudenteDao dao = new StudenteDao(em);
 
         Studente s1 = new Studente();
-        s1.setMatricola(4);
         s1.setNome("Rino");
         s1.setCognome("De Martino");
         s1.setIndirizzo("Via dei Mille");

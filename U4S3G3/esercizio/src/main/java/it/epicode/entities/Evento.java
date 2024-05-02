@@ -1,16 +1,28 @@
 package it.epicode.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "eventi")
 public class Evento {
-    @Id
-    @GeneratedValue
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "eventi_id_table")
+
+//    @GeneratedValue(strategy = GenerationType.TABLE, generator = "eventi_id_table")
     //da usare quando la generation type è SEQUENCE
     //@SequenceGenerator(name="eventi_id_sequence", initialValue = 1, allocationSize = 1)
-    @TableGenerator(name = "eventi_id_table", initialValue = 0, allocationSize = 1)
+//    @TableGenerator(name = "eventi_id_table", initialValue = 0, allocationSize = 1)
+
+//  1 persona = molteplici partecipazioni
+//  1 partecipazione = 1 persona
+
+//  1 evento = molteplici partecipazioni
+//  1 partecipazione = 1 evento
+
+//  1 evento = 1 location
+//  1 location = 1 evento
+
+    @Id
+    @GeneratedValue
     private int id;
     private String titolo;
     private LocalDate dataEvento;
@@ -21,16 +33,23 @@ public class Evento {
     private TipoEvento tipoEvento;
     private int numeroMassimoPartecipanti;
 
-    public Evento(int id, String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti) {
+    @OneToMany(mappedBy = "evento")
+    private List<Partecipazione> partecipazioni;
+    @Embedded
+    private Location location;
+
+    public Evento(int id, String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti, List<Partecipazione> partecipazioni, Location location) {
         this.id = id;
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.partecipazioni = partecipazioni;
+        this.location = location;
     }
 
-    public Evento(){
+    public Evento() {
 
     }
 
@@ -82,6 +101,22 @@ public class Evento {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
     }
 
+    public List<Partecipazione> getPartecipazioni() {
+        return partecipazioni;
+    }
+
+    public void setPartecipazioni(List<Partecipazione> partecipazioni) {
+        this.partecipazioni = partecipazioni;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     @Override
     public String toString() {
         return "Evento{" +
@@ -91,6 +126,8 @@ public class Evento {
                 ", descrizione='" + descrizione + '\'' +
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                ", partecipazioni=" + partecipazioni +
+                ", location=" + location +
                 '}';
     }
 }

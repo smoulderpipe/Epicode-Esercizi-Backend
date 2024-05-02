@@ -13,6 +13,7 @@ public class Studente {
     private String nome;
     @Column(nullable = false, length = 30)
     private String cognome;
+//    @Embedded
     private String indirizzo;
     private LocalDate dataNascita;
 
