@@ -8,7 +8,7 @@
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/catalogo_bibliografico" />
             <property name="javax.persistence.jdbc.user" value="postgres" />
-            <property name="javax.persistence.jdbc.password" value="demopass" />
+            <property name="javax.persistence.jdbc.password" value="Granarolo1" />
             <property name="hibernate.default_schema" value="public" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
