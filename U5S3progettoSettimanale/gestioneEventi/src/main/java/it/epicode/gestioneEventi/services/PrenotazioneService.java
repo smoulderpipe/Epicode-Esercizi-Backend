@@ -61,7 +61,7 @@ public class PrenotazioneService {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String email;
         if (principal instanceof UserDetails) {
-            email = ((UserDetails)principal).getUsername();
+            email = ((UserDetails) principal).getUsername();
         } else {
             email = principal.toString();
         }
@@ -97,7 +97,7 @@ public class PrenotazioneService {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String email;
         if (principal instanceof UserDetails) {
-            email = ((UserDetails)principal).getUsername();
+            email = ((UserDetails) principal).getUsername();
         } else {
             email = principal.toString();
         }
@@ -122,6 +122,11 @@ public class PrenotazioneService {
         }
 
         Evento evento = eventoOptional.get();
+
+        if (evento.getNumeroPostiDisponibili() <= 0) {
+            throw new BadRequestException("Nessun posto disponibile per questo evento");
+        }
+
         prenotazioneDaAggiornare.setEvento(evento);
 
         return prenotazioneRepo.save(prenotazioneDaAggiornare);
