@@ -37,7 +37,7 @@ public class EventoController {
         if(bindingResult.hasErrors()){
 
             throw new BadRequestException(bindingResult.getAllErrors().stream()
-                    .map(objectError -> objectError.getDefaultMessage()).reduce("", (s, s2) -> s+2));
+                    .map(objectError -> objectError.getDefaultMessage()).reduce("", (s, s2) -> s+s2));
         }
         return eventoService.saveEvento(eventoDto);
     }

@@ -24,7 +24,7 @@ public class AuthController {
     public String register(@RequestBody @Validated UtenteDto utenteDto, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             throw new BadRequestException(bindingResult.getAllErrors().stream()
-                    .map(objectError -> objectError.getDefaultMessage()).reduce("", (s, s2) -> s+2));
+                    .map(objectError -> objectError.getDefaultMessage()).reduce("", (s, s2) -> s+s2));
         }
         return utenteService.saveUtente(utenteDto);
     }
